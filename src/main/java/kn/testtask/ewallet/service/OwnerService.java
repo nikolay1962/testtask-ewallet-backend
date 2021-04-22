@@ -5,10 +5,12 @@ import kn.testtask.ewallet.repository.EwalletRepository;
 import kn.testtask.ewallet.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Service
+@Transactional
 public class OwnerService {
     @Autowired
     private OwnerRepository ownerRepository;

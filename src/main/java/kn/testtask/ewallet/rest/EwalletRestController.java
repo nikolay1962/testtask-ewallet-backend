@@ -50,12 +50,12 @@ public class EwalletRestController {
     @PutMapping(value = "deposit")
     public ResponseEntity<Ewallet> depositMoneyToEwallet(@RequestBody Operation operation) {
         if (operation == null) {
-            throw new IllegalArgumentException("Empty operation;");
+            throw new IllegalArgumentException("Don't be afraid. It is for further processing with @RestControllerAdvice...");
         }
         operation.setType(OperationType.DEPOSIT);
         Ewallet ewallet = ewalletService.processEwalletOperation(operation);
         if (ewallet == null) {
-            throw new IllegalArgumentException("Smth. went wrong.");
+            throw new IllegalArgumentException("Don't be afraid. It is for further processing with @RestControllerAdvice...");
         }
 
         return new ResponseEntity<Ewallet>(ewallet, HttpStatus.OK);
@@ -64,13 +64,13 @@ public class EwalletRestController {
     @PutMapping(value = "withdraw")
     public ResponseEntity withdrawMoneyFromEwallet(@RequestBody Operation operation) {
         if (operation == null) {
-            throw new IllegalArgumentException("Empty operation;");
+            throw new IllegalArgumentException("Don't be afraid. It is for further processing with @RestControllerAdvice...");
         }
         operation.setType(OperationType.WITHDRAW);
         Ewallet ewallet = ewalletService.processEwalletOperation(operation);
         Map<String,String> responseBody = new HashMap<>();
         if (ewallet == null) {
-            throw new IllegalArgumentException("Smth. went wrong.");
+            throw new IllegalArgumentException("Don't be afraid. It is for further processing with @RestControllerAdvice...");
         }
 
         return new ResponseEntity<Ewallet>(ewallet, HttpStatus.OK);
