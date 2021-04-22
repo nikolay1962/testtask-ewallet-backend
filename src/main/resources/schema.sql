@@ -1,0 +1,16 @@
+CREATE TABLE Ewallet(
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  owner BIGINT NOT NULL,
+  currency CHAR(3),
+  amount DECIMAL(20, 2),
+  name VARCHAR(255),
+  update_date_time TIMESTAMP
+);
+
+CREATE TABLE Owner(
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(64),
+  email VARCHAR(64) NOT NULL UNIQUE
+);
+
+ALTER TABLE Ewallet ADD FOREIGN KEY (owner) REFERENCES Owner(id);
